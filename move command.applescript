@@ -5,10 +5,10 @@ on run argv
 			set theAccount to item 2 of argv
 			if selection is {} then error
 			set messageList to (selection as list)
+			set theMailbox to mailbox mailboxName of account theAccount
 			repeat with theMessage in messageList
 				-- set theMessage to the first item of (selection as list)
-				set theMailbox to mailbox mailboxName of account theAccount
-				set mailbox of theMessage to theMailbox
+				move theMessage to theMailbox
 			end repeat
 		end try
 	end tell
